@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.location.Location
 import android.os.Bundle
-
+import androidx.core.content.ContextCompat
 import org.json.JSONObject
 import androidx.appcompat.app.AppCompatActivity
 import com.eopeter.fluttermapboxnavigation.FlutterMapboxNavigationPlugin
@@ -146,15 +146,15 @@ class NavigationActivity : AppCompatActivity() {
             }
         }
 
-        registerReceiver(
-            finishBroadcastReceiver,
-            IntentFilter(NavigationLauncher.KEY_STOP_NAVIGATION)
-        )
+         registerReceiver(
+           finishBroadcastReceiver,
+           IntentFilter(NavigationLauncher.KEY_STOP_NAVIGATION),
+           ContextCompat.RECEIVER_NOT_EXPORTED)
 
-        registerReceiver(
-            addWayPointsBroadcastReceiver,
-            IntentFilter(NavigationLauncher.KEY_ADD_WAYPOINTS)
-        )
+         registerReceiver(
+          addWayPointsBroadcastReceiver,
+          IntentFilter(NavigationLauncher.KEY_ADD_WAYPOINTS),
+          ContextCompat.RECEIVER_NOT_EXPORTED)
 
         // TODO set the style Uri
         var styleUrlDay = FlutterMapboxNavigationPlugin.mapStyleUrlDay

@@ -149,12 +149,12 @@ class NavigationActivity : AppCompatActivity() {
          registerReceiver(
            finishBroadcastReceiver,
            IntentFilter(NavigationLauncher.KEY_STOP_NAVIGATION),
-           ContextCompat.RECEIVER_NOT_EXPORTED)
+           ContextCompat.EXPORTED)
 
          registerReceiver(
           addWayPointsBroadcastReceiver,
           IntentFilter(NavigationLauncher.KEY_ADD_WAYPOINTS),
-          ContextCompat.RECEIVER_NOT_EXPORTED)
+          ContextCompat.EXPORTED)
 
         // TODO set the style Uri
         var styleUrlDay = FlutterMapboxNavigationPlugin.mapStyleUrlDay
